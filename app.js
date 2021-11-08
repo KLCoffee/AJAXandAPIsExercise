@@ -57,19 +57,23 @@ quoteFunc();
 const fourth = document.querySelector('#fourth');
 const p7 = document.createElement('p');
 fourth.append(p7);
-
+// Base URL for attaching endpoint
 const baseURL2 = `https://api.tvmaze.com`;
-// const endpoint2 =`/search/shows?q=`;
-// const queryString = `Mandalorian`;
-// const fullEndPoint2 = baseURL2 + endpoint2 + queryString;
-// const fullEndPoint2 = `https://api.tvmaze.com/search/shows?q=Mandalorian`
-const endpoint1 = ` /shows/:id`;
-const endpoint2 = `/episodebynumber?season=:season&number=:number`;
-const showId = `38963`
-const shwSea = 2
-const swhNum = 8
-const fullEndPoint2 = baseURL2 + endpoint1 + `${showId}` + episodeby
-async function getShow(){
+// Endpoint for finding show by name (this works)
+ const endpoint2 =`/search/shows?q=`;
+ const queryString = `Mandalorian`;
+ const fullEndPoint2 = baseURL2 + endpoint2 + queryString;
+ const fullEndPoint2 = `https://api.tvmaze.com/*?*?search/shows?q=Mandalorian`
+
+//  Trying to add endpoint to identify by id, season and episode.  Not finished Does not work
+// const endpoint1 = ` /shows/:id`;
+// const endpoint2 = `/episodebynumber?season=:season&number=:number`;
+// const showId = `38963`
+// const shwSea = 2
+// const swhNum = 8
+// const fullEndPoint2 = baseURL2 + endpoint1 + `${showId}` + episodeby
+
+async function gettvMazeFunc(){
     try{
         const show = await axios.get(fullEndPoint2);
         console.log(`Mandalorian was successful`);
@@ -86,4 +90,4 @@ async function getShow(){
     console.log(err);
     }
 }
-getShow();
+tvMazeFunc();
