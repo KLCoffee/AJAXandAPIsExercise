@@ -53,8 +53,37 @@ p6.innerText = quoteJS3.data.quote;
 }
 quoteFunc();
 
+// 4
+const fourth = document.querySelector('#fourth');
+const p7 = document.createElement('p');
+fourth.append(p7);
 
-// // 4
-// const fourth = document.querySelector('#fourth');
-// const p7 = document.createElement('p');
-// fourth.append(p7);
+const baseURL2 = `https://api.tvmaze.com`;
+// const endpoint2 =`/search/shows?q=`;
+// const queryString = `Mandalorian`;
+// const fullEndPoint2 = baseURL2 + endpoint2 + queryString;
+// const fullEndPoint2 = `https://api.tvmaze.com/search/shows?q=Mandalorian`
+const endpoint1 = ` /shows/:id`;
+const endpoint2 = `/episodebynumber?season=:season&number=:number`;
+const showId = `38963`
+const shwSea = 2
+const swhNum = 8
+const fullEndPoint2 = baseURL2 + endpoint1 + `${showId}` + episodeby
+async function getShow(){
+    try{
+        const show = await axios.get(fullEndPoint2);
+        console.log(`Mandalorian was successful`);
+        p7.innertText = `Mandalorian`;
+        console.log(show.data);
+        const arrayOfResults = show.data;
+        for (s of arrayOfResults) {
+            console.log(s);
+            console.log(s.show.name);
+            p7.innerText = s.show.name;
+        }
+    }catch (err){
+    console.log(`NOT successful`);
+    console.log(err);
+    }
+}
+getShow();
